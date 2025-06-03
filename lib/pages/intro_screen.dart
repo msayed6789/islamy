@@ -49,7 +49,6 @@ class _IntroScreenState extends State<IntroScreen> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    print(screenWidth);
 
     return Scaffold(
       backgroundColor: Color(ColorsApp.black),
