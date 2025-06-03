@@ -7,20 +7,19 @@ import 'package:islamy/pages/intro_screen.dart';
 class NativeSplashTimer extends StatefulWidget {
   const NativeSplashTimer({super.key});
 
-
   @override
   State<NativeSplashTimer> createState() => _NativeSplashTimerState();
 }
 
 class _NativeSplashTimerState extends State<NativeSplashTimer> {
-
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 2), () {
       Navigator.pushNamed(context, IntroScreen.routeName);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +35,7 @@ class _NativeSplashTimerState extends State<NativeSplashTimer> {
             ),
             Positioned(
               top: 57,
-        right: 45,
+              right: 45,
               child: Image.asset(
                 "assets/images/mosque.png",
                 height: 200,
