@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamy/pages/home.dart';
 import 'package:islamy/pages/intro_screen.dart';
 import 'package:islamy/pages/native_splash_timer.dart';
+import 'package:islamy/services/appTheme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      darkTheme: Apptheme.darkMode,
+      themeMode: ThemeMode.dark,
+      theme:Apptheme.darkMode,
       routes: {
         IntroScreen.routeName: (_) => const IntroScreen(),
         Home.routeName: (_) => const Home(),
