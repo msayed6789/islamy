@@ -7,6 +7,8 @@ import 'package:islamy/pages/intro_screen.dart';
 class NativeSplashTimer extends StatefulWidget {
   const NativeSplashTimer({super.key});
 
+  static final String routeName = '/';
+
   @override
   State<NativeSplashTimer> createState() => _NativeSplashTimerState();
 }
@@ -17,6 +19,7 @@ class _NativeSplashTimerState extends State<NativeSplashTimer> {
     super.initState();
     Timer(Duration(seconds: 2), () {
       Navigator.pushNamed(context, IntroScreen.routeName);
+      //Navigator.pushNamed(context, Home.routeName);
     });
   }
 

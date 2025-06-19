@@ -4,4 +4,5 @@ class ColorsApp {
   static int lightGold = 0xFF707070;
   static int offWhit = 0xFFFBF1DF;
   static int brown = 0xFF916006;
+  static int white = 0xFFFFFFF;
 }

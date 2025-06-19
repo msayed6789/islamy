@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamy/pages/home.dart';
+import 'package:islamy/home_screen/home_screent.dart';
 import 'package:islamy/pages/intro_screen.dart';
 import 'package:islamy/pages/native_splash_timer.dart';
 import 'package:islamy/services/appTheme.dart';
@@ -16,14 +16,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       darkTheme: Apptheme.darkMode,
-      themeMode: ThemeMode.dark,
+      //themeMode: ThemeMode.dark,
       theme:Apptheme.darkMode,
       routes: {
         IntroScreen.routeName: (_) => const IntroScreen(),
+        NativeSplashTimer.routeName: (_) => const NativeSplashTimer(),
         Home.routeName: (_) => const Home(),
       },
       debugShowCheckedModeBanner: false,
-      home: NativeSplashTimer(),
+    initialRoute: '/',
+    
     );
   }
 }

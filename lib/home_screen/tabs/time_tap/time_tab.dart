@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+
+class TimeTab extends StatelessWidget {
+  const TimeTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  SizedBox(
+      child: Stack(
+        children: [
+          Center(child: Text("Time Tab",style: TextStyle(color: Colors.white),))
+        ],
+      ),
+    );
+  }
+}

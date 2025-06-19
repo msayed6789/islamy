@@ -1,7 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:islamy/pages/home.dart';
+import 'package:islamy/home_screen/home_screent.dart';
+
 import 'package:islamy/services/color.dart';
 
 int index = 0;
