@@ -12,7 +12,6 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundGradient(
-      
       imag: AppAssets.homeTabBg,
       child: 
       Padding(
@@ -46,8 +45,6 @@ class HomeTab extends StatelessWidget {
                 ],
               ),
             )
-            
-              
           ],
         ),
       ),

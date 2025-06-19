@@ -10,33 +10,35 @@ class BackgroundGradient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Image.asset(
-          imag,
-          width: double.infinity,
-        fit: BoxFit.cover,
+    return Container(
+        width: double.infinity,
+      decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage(
+        imag,
+      ),
+      
+      fit: BoxFit.cover,
+      )  
+      ),
+      child: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              stops: [0.5, 1],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(ColorsApp.black).withValues(alpha: 0.7),
+                Color(ColorsApp.black)
+              ]),
         ),
-        Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                stops: [0.5, 1],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color(ColorsApp.black).withValues(alpha: 0.7),
-                  Color(ColorsApp.black)
-                ]),
-          ),
-          child: Column(
-            children: [
-              Expanded(child: child),
-            ],
-          ),
+        child: Column(
+          children: [
+            Expanded(child: child),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
