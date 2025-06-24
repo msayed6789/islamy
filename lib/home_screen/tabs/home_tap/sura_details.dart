@@ -37,6 +37,7 @@ class _SuraDetailsState extends State<SuraDetails> {
       body: Padding(
         padding: EdgeInsets.symmetric(
             vertical: MediaQuery.of(context).size.height * 0.018,
+            
             horizontal: MediaQuery.of(context).size.width * 0.05),
         child: ContentPreview(contentDetil: suraDet, title: suraModelDat.enName,)
         //Column(children: [

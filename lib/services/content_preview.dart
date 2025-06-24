@@ -5,7 +5,8 @@ import 'package:islamy/services/color.dart';
 class ContentPreview extends StatelessWidget {
   final List<String> contentDetil;
   final String title;
-  const ContentPreview({super.key, required this.contentDetil, required this.title});
+  const ContentPreview(
+      {super.key, required this.contentDetil, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class ContentPreview extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.1),
         ],
       ),
+  
       Expanded(
         child: SingleChildScrollView(
           child: Text.rich(
@@ -56,7 +58,11 @@ class ContentPreview extends StatelessWidget {
                         )),
               )),
         ),
-      )
+      ),
+    Spacer(),
+      Image.asset(AppAssets.contentReview,
+            width: MediaQuery.of(context).size.width ,
+            height: MediaQuery.of(context).size.height * 0.12),
     ]);
   }
 }

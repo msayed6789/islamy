@@ -12,5 +12,6 @@ class AppAssets {
   static final String suraLogo = "assets/images/sura_logo.png";
   static final String suraDetailsRight = "assets/images/sura_details_right.png";
   static final String suraDetailsLeft = "assets/images/sura_details_left.png";
+  static final String contentReview = "assets/images/content_review.png";
 
 }
