@@ -7,7 +7,7 @@ class SuraModel {
   SuraModel(
       {required this.arName, required this.enName, required this.versesCount,required this.suraCount});
 
-  static List<SuraModel> get sura_info => suras();
+  static List<SuraModel> get suraInfo => suras();
 
   static List<SuraModel> suras() {
     List<SuraModel> suraList = [];

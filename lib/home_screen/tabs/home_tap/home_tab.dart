@@ -5,9 +5,16 @@ import 'package:islamy/home_screen/widgets/custom_text_field.dart';
 import 'package:islamy/services/app_assets.dart';
 import 'package:islamy/services/background_gradient.dart';
 
-class HomeTab extends StatelessWidget {
-  HomeTab({super.key});
+class HomeTab extends StatefulWidget {
+  const HomeTab({super.key});
   static String routeName = "HomeTab";
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BackgroundGradient(
@@ -22,6 +29,23 @@ class HomeTab extends StatelessWidget {
             ),
             CustomTextField(
               hintText: "Sura Name",
+              controller: controller,
+              onChanged: (p0) {
+                setState(() {});
+              },
+              suffix: InkWell(
+                onTap: () {
+                  controller.clear();
+                  FocusScope.of(context).unfocus();
+    
+                  setState(() {});
+                },
+                child: Icon(
+                  Icons.close_outlined,
+                  color: Colors.amber,
+                  size: 20,
+                ),
+              ),
             ),
             SizedBox(
               height: 10,
@@ -37,7 +61,7 @@ class HomeTab extends StatelessWidget {
                         color: Colors.white),
                   ),
                   MostRecentSura(),
-                  SuraListView(),
+                  SuraListView(search: controller.text.trim()),
                 ],
               ),
             )

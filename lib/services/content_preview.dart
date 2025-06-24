@@ -5,8 +5,18 @@ import 'package:islamy/services/color.dart';
 class ContentPreview extends StatelessWidget {
   final List<String> contentDetil;
   final String title;
+  final bool success;
+  final bool loading;
+  final bool error;
+  final Function loadContent;
   const ContentPreview(
-      {super.key, required this.contentDetil, required this.title});
+      {super.key,
+      required this.contentDetil,
+      required this.title,
+      required this.success,
+      required this.loading,
+      required this.error,
+      required this.loadContent});
 
   @override
   Widget build(BuildContext context) {
@@ -29,40 +39,78 @@ class ContentPreview extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.1),
         ],
       ),
-  
+
+      
       Expanded(
-        child: SingleChildScrollView(
-          child: Text.rich(
-              textDirection: TextDirection.rtl,
-              TextSpan(
-                style: TextStyle(
-                  fontSize: 20,
-                  //color: Color(ColorsApp.gold),
-                  fontWeight: FontWeight.w700,
-                ),
-                children: List.generate(
-                    contentDetil.length,
-                    (index) => TextSpan(
+        child: 
+        
+        SingleChildScrollView(
+          
+            child:
+            loading?Padding(
+                  padding: EdgeInsets.symmetric(
+                            vertical: MediaQuery.of(context).size.height * 0.2,
+                            horizontal:
+                                MediaQuery.of(context).size.width * 0.05),
+                  child: CircularProgressIndicator(),
+                ): success
+                    ?
+            
+            
+            
+            Text.rich(
+                        textDirection: TextDirection.rtl,
+                        TextSpan(
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          children: List.generate(
+                              contentDetil.length,
+                              (index) => TextSpan(
+                                    children: [
+                                      TextSpan(
+                                          text: contentDetil[index],
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          )),
+                                      TextSpan(
+                                          text: "(${index + 1})  ",
+                                          style: TextStyle(
+                                            color: Color(ColorsApp.gold),
+                                          )),
+                                    ],
+                                  )),
+                        ))
+                          : Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: MediaQuery.of(context).size.height * 0.2,
+                            horizontal:
+                                MediaQuery.of(context).size.width * 0.05),
+                        child: Column(
                           children: [
-                            TextSpan(
-                                text: contentDetil[index],
+                            Text("Loading Error",
                                 style: TextStyle(
-                                  color: Colors.white,
-                                )),
-                            TextSpan(
-                                text: "(${index + 1})  ",
-                                style: TextStyle(
-                                  color: Color(ColorsApp.gold),
-                                )),
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w700)),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            ElevatedButton(
+                                onPressed: () => loadContent(),
+                                child: Text("Try Again"))
                           ],
-                        )),
-              )),
-        ),
+                        ),
+                      ),
+                    )
+                  
       ),
-    Spacer(),
+      
+      //Spacer(),
       Image.asset(AppAssets.contentReview,
-            width: MediaQuery.of(context).size.width ,
-            height: MediaQuery.of(context).size.height * 0.12),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.12),
     ]);
   }
 }

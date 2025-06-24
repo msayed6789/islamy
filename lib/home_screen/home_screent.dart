@@ -25,114 +25,127 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
-  List<Widget> tabs = [HomeTab(),BookTab(),SebhaTab(),TimeTab(),RadioTab()];
+  List<Widget> tabs = [HomeTab(), BookTab(), SebhaTab(), TimeTab(), RadioTab()];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body:Stack(
-          children: [
-              tabs[index],
-              Positioned(
-                top:MediaQuery.of(context).size.height*0.035,
-                right: 0,
-                left: 0,
-                child: Image.asset(
-                  "assets/images/mosque.png",
-                  height: MediaQuery.of(context).size.height*0.2,
-                ),
-              ),
-              Positioned(
-                  top: MediaQuery.of(context).size.height*0.13,
-                  left: 0,
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+            body: Stack(
+              children: [
+                tabs[index],
+                Positioned(
+                  top: MediaQuery.of(context).size.height * 0.035,
                   right: 0,
-                
-                  child: SvgPicture.asset("assets/images/Islami.svg",)),
-          
-          ],
-        ) ,
-          bottomNavigationBar: BottomNavigationBar(
-              onTap: (value) {
-                index = value;
-                setState(() {});
-              },
-              currentIndex: index,
-              items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(AppAssets.quranIcon),
-              label: "Quran",
-              activeIcon: Container(
-                decoration: BoxDecoration(
-                  color: Color(ColorsApp.black).withValues(alpha: 0.6),
-                  borderRadius: BorderRadius.circular(66),
+                  left: 0,
+                  child: Image.asset(
+                    "assets/images/mosque.png",
+                    height: MediaQuery.of(context).size.height * 0.2,
+                  ),
                 ),
-                padding: EdgeInsets.symmetric(vertical: 6, horizontal: 20),
-                child: SvgPicture.asset(
-                  AppAssets.quranIcon,
-                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                ),
-              ),
+                Positioned(
+                    top: MediaQuery.of(context).size.height * 0.13,
+                    left: 0,
+                    right: 0,
+                    child: SvgPicture.asset(
+                      "assets/images/Islami.svg",
+                    )),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(AppAssets.bookIcon),
-              label: "Hadith",
-              activeIcon: Container(
-                decoration: BoxDecoration(
-                  color: Color(ColorsApp.black).withValues(alpha: 0.6),
-                  borderRadius: BorderRadius.circular(66),
-                ),
-                padding: EdgeInsets.symmetric(vertical: 6, horizontal: 20),
-                child: SvgPicture.asset(AppAssets.bookIcon,
-                    colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn)),
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(AppAssets.necklaceIcon),
-              label: "Sebha",
-              activeIcon: Container(
-                decoration: BoxDecoration(
-                  color: Color(ColorsApp.black).withValues(alpha: 0.6),
-                  borderRadius: BorderRadius.circular(66),
-                ),
-                padding: EdgeInsets.symmetric(vertical: 6, horizontal: 20),
-                child: SvgPicture.asset(
-                  AppAssets.necklaceIcon,
-                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                ),
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(AppAssets.radioIcon),
-              label: "Radio",
-              activeIcon: Container(
-                decoration: BoxDecoration(
-                  color: Color(ColorsApp.black).withValues(alpha: 0.6),
-                  borderRadius: BorderRadius.circular(66),
-                ),
-                padding: EdgeInsets.symmetric(vertical: 6, horizontal: 20),
-                child: SvgPicture.asset(
-                  AppAssets.radioIcon,
-                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                ),
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(AppAssets.staIcon),
-              label: "Time",
-              activeIcon: Container(
-                decoration: BoxDecoration(
-                  color: Color(ColorsApp.black).withValues(alpha: 0.6),
-                  borderRadius: BorderRadius.circular(66),
-                ),
-                padding: EdgeInsets.symmetric(vertical: 6, horizontal: 20),
-                child: SvgPicture.asset(
-                  AppAssets.staIcon,
-                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                ),
-              ),
-            ),
-          ])),
+            bottomNavigationBar: BottomNavigationBar(
+                onTap: (value) {
+                  index = value;
+                  setState(() {});
+                },
+                currentIndex: index,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: SvgPicture.asset(AppAssets.quranIcon),
+                    label: "Quran",
+                    activeIcon: Container(
+                      decoration: BoxDecoration(
+                        color: Color(ColorsApp.black).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(66),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+                      child: SvgPicture.asset(
+                        AppAssets.quranIcon,
+                        colorFilter:
+                            ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      ),
+                    ),
+                  ),
+                  BottomNavigationBarItem(
+                    icon: SvgPicture.asset(AppAssets.bookIcon),
+                    label: "Hadith",
+                    activeIcon: Container(
+                      decoration: BoxDecoration(
+                        color: Color(ColorsApp.black).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(66),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+                      child: SvgPicture.asset(AppAssets.bookIcon,
+                          colorFilter:
+                              ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+                    ),
+                  ),
+                  BottomNavigationBarItem(
+                    icon: SvgPicture.asset(AppAssets.necklaceIcon),
+                    label: "Sebha",
+                    activeIcon: Container(
+                      decoration: BoxDecoration(
+                        color: Color(ColorsApp.black).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(66),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+                      child: SvgPicture.asset(
+                        AppAssets.necklaceIcon,
+                        colorFilter:
+                            ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      ),
+                    ),
+                  ),
+                  BottomNavigationBarItem(
+                    icon: SvgPicture.asset(AppAssets.radioIcon),
+                    label: "Radio",
+                    activeIcon: Container(
+                      decoration: BoxDecoration(
+                        color: Color(ColorsApp.black).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(66),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+                      child: SvgPicture.asset(
+                        AppAssets.radioIcon,
+                        colorFilter:
+                            ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      ),
+                    ),
+                  ),
+                  BottomNavigationBarItem(
+                    icon: SvgPicture.asset(AppAssets.staIcon),
+                    label: "Time",
+                    activeIcon: Container(
+                      decoration: BoxDecoration(
+                        color: Color(ColorsApp.black).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(66),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+                      child: SvgPicture.asset(
+                        AppAssets.staIcon,
+                        colorFilter:
+                            ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      ),
+                    ),
+                  ),
+                ])),
+      ),
     );
   }
 }
