@@ -3,7 +3,6 @@ import 'package:islamy/services/color.dart';
 
 class Apptheme {
 static  ThemeData darkMode = ThemeData(
-
   
 bottomNavigationBarTheme:BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
@@ -23,7 +22,7 @@ fontSize: 12,
     appBarTheme: AppBarTheme(
       backgroundColor: Color(ColorsApp.black),
       centerTitle: true,
-      iconTheme: IconThemeData(color:  Color(ColorsApp.gold),size: 20),
+      iconTheme: IconThemeData(color:  Color(ColorsApp.gold),size: 25),
       titleTextStyle: TextStyle(
 color: Color(ColorsApp.gold),
 fontWeight: FontWeight.w700,

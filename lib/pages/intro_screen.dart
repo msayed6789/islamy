@@ -60,11 +60,6 @@ class _IntroScreenState extends State<IntroScreen> {
           child: Stack(
             children: [
               Positioned(
-                // top: 16,
-                // right: 50,
-                // height: 171,
-                // width: 291,
-
                 top: screenHeight * (16 / persHeight),
                 right: screenWidth * (50 / persWidth),
                 height: screenHeight * (171 / persHeight),

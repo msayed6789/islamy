@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:islamy/home_screen/models/sura_model.dart';
+import 'package:islamy/home_screen/tabs/home_tap/sura_details.dart';
 import 'package:islamy/services/app_assets.dart';
 
 class SuraList extends StatelessWidget {
@@ -11,12 +12,15 @@ class SuraList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      dense: true,
-      contentPadding: EdgeInsets.zero,
-      minVerticalPadding:0,
+        onTap: () {
+          Navigator.of(context).pushNamed(SuraDetails.routeName,arguments: sura_info );
+        },
+        dense: true,
+        contentPadding: EdgeInsets.zero,
+        minVerticalPadding: 0,
         leading: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.15, // أصغر قليلاً لمناسبة الهواتف
-  height: MediaQuery.of(context).size.width * 0.15, // نفس العرض ليكون مربع
+          width: MediaQuery.of(context).size.width * 0.15,
+          height: MediaQuery.of(context).size.width * 0.15,
           child: Stack(
             alignment: Alignment.centerLeft,
             children: [

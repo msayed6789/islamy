@@ -25,24 +25,24 @@ class MostRecentSura extends StatelessWidget {
   //   }
   // ];
 
-  List<SuraModel> sura_info = [SuraModel(enName:"Al-Anbiya",arName: "الأنبياء",versesCount: 112 ),
-  SuraModel(enName:"Al-Fatiha",arName: "الفاتحة",versesCount: 120 ),
-  SuraModel(enName:"Al-Baqarah",arName: "البقرة",versesCount: 140 ),
-  SuraModel(enName:"Aal-E-Imran",arName: "الرحمن",versesCount: 160 )
+  // List<SuraModel> sura_info = [SuraModel(enName:"Al-Anbiya",arName: "الأنبياء",versesCount: 112 ),
+  // SuraModel(enName:"Al-Fatiha",arName: "الفاتحة",versesCount: 120 ),
+  // SuraModel(enName:"Al-Baqarah",arName: "البقرة",versesCount: 140 ),
+  // SuraModel(enName:"Aal-E-Imran",arName: "الرحمن",versesCount: 160 )
   
-  ];
+  // ];
 
   @override
   Widget build(BuildContext context) {
-    return sura_info.isNotEmpty? SizedBox(
+    return SuraModel.sura_info.isNotEmpty? SizedBox(
       height: MediaQuery.of(context).size.width * 0.5,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           //padding: const EdgeInsets.all(8),
-          itemCount: sura_info.length,
+          itemCount: SuraModel.sura_info.length,
           itemBuilder: (BuildContext context, int index) {
             return SuraCard(
-              sura: sura_info[index],
+              sura: SuraModel.sura_info[index],
             );
           }),
     ):Container();

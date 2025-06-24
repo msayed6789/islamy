@@ -7,14 +7,12 @@ import 'package:islamy/services/background_gradient.dart';
 
 class HomeTab extends StatelessWidget {
   HomeTab({super.key});
-
-
+  static String routeName = "HomeTab";
   @override
   Widget build(BuildContext context) {
     return BackgroundGradient(
       imag: AppAssets.homeTabBg,
-      child: 
-      Padding(
+      child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,25 +21,23 @@ class HomeTab extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.22,
             ),
             CustomTextField(
-              hintText: "Sura Name", 
+              hintText: "Sura Name",
             ),
             SizedBox(
               height: 10,
             ),
             Expanded(
               child: ListView(
-                
                 children: [
-              Text(
-                "Most Recently",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white),
-              ),
-                      
-                       MostRecentSura(),
-                      SuraListView(),
+                  Text(
+                    "Most Recently",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
+                  ),
+                  MostRecentSura(),
+                  SuraListView(),
                 ],
               ),
             )
