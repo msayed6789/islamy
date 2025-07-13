@@ -2,12 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:islamy/home_screen/home_screent.dart';
 import 'package:islamy/pages/intro_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NativeSplashTimer extends StatefulWidget {
   const NativeSplashTimer({super.key});
 
-  static final String routeName = '/n';
+  static final String routeName = '/';
 
   @override
   State<NativeSplashTimer> createState() => _NativeSplashTimerState();
@@ -17,10 +19,22 @@ class _NativeSplashTimerState extends State<NativeSplashTimer> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2), () {
-      Navigator.pushNamed(context, IntroScreen.routeName);
-      //Navigator.pushNamed(context, Home.routeName);
+    Timer(Duration(seconds: 2), () async {
+      bool? isFirstTime = await nativeScreenTimer();
+      if (isFirstTime == true) {
+        //  Navigator.pushNamed(context, IntroScreen.routeName);
+        Navigator.pushReplacementNamed(context, IntroScreen.routeName);
+      } else {
+        Navigator.pushReplacementNamed(context, Home.routeName);
+        // Navigator.pushNamed(context, Home.routeName);
+      }
     });
+  }
+
+  Future<bool?> nativeScreenTimer() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    bool result = pref.getBool("firstTimeFlag") ?? true;
+    return result;
   }
 
   @override

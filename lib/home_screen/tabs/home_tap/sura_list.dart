@@ -7,14 +7,20 @@ import 'package:islamy/services/app_assets.dart';
 class SuraList extends StatelessWidget {
   final SuraModel suraInfo;
   final int index;
-  const SuraList({super.key, required this.suraInfo, required this.index});
+  final Function(SuraModel,int)? mostRecentAdd;
+  const SuraList(
+      {super.key,
+      required this.suraInfo,
+      required this.index,
+      required this.mostRecentAdd});
 
   @override
   Widget build(BuildContext context) {
-  
     return ListTile(
         onTap: () {
-          Navigator.of(context).pushNamed(SuraDetails.routeName,arguments: suraInfo );
+          mostRecentAdd!(suraInfo,index);
+          Navigator.of(context)
+              .pushNamed(SuraDetails.routeName, arguments: suraInfo);
         },
         dense: true,
         contentPadding: EdgeInsets.zero,
@@ -53,11 +59,12 @@ class SuraList extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 14,
                 fontWeight: FontWeight.w700)),
-        trailing: Text(
-          suraInfo.arName,
+        trailing: Text(suraInfo.arName,
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.w700)));
   }
 }
+
+

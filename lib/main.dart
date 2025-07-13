@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
         HomeTab.routeName:(_)=> HomeTab(),
       },
       debugShowCheckedModeBanner: false,
-  //  initialRoute: Home.routeName,
-    initialRoute: "/Home_Screen",
+   //initialRoute: Home.routeName,
+   //initialRoute: "/",
     
     
     );

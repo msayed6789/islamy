@@ -6,6 +6,7 @@ import 'package:islamy/home_screen/home_screent.dart';
 import 'package:islamy/services/color.dart';
 
 int index = 0;
+
 const double persHeight = 834.9090909090909;
 const double persWidth = 392.72727272727275;
 
@@ -46,6 +47,16 @@ class _IntroScreenState extends State<IntroScreen> {
       "mainText": "Holy Quran Radio"
     },
   ];
+
+  @override
+  // void initState() {
+  //   firstTimeFlag = false;
+  //   SharedPreferences.getInstance().then((pref) {
+  //     pref.setBool('firstTimeFlag', firstTimeFlag);
+  //   });
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -102,6 +113,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: 10,),
               Padding(
                 //padding: const EdgeInsets.only(bottom: 90),
                 padding:
@@ -118,38 +130,39 @@ class _IntroScreenState extends State<IntroScreen> {
                   ),
                 ),
               ),
-              index>0?
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * (16 / persWidth),vertical: screenHeight * (16 / persHeight)),
-                
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: TextButton(
-                    onPressed: () {
-                      setState(() {
-                        if (index > 0) {
-                          index--;
-                        }
-                      });
-                    },
-                    child: Text(
-                      "Back",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                          color: Color(ColorsApp.gold)),
-                    ),
-                  ),
-                ),
-              ):SizedBox.shrink(),
+              index > 0
+                  ? Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: screenWidth * (16 / persWidth),
+                          vertical: screenHeight * (16 / persHeight)),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: TextButton(
+                          onPressed: () {
+                            setState(() {
+                              if (index > 0) {
+                                index--;
+                              }
+                            });
+                          },
+                          child: Text(
+                            "Back",
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: Color(ColorsApp.gold)),
+                          ),
+                        ),
+                      ),
+                    )
+                  : SizedBox.shrink(),
               // SizedBox(
               //   //width: 50,
               //     width: screenWidth * (50 / persWidth),
               // ),
               Positioned(
-                  bottom: screenHeight * (27 / persHeight),
-                  left: screenWidth * (133 / persWidth),
-                
+                bottom: screenHeight * (27 / persHeight),
+                left: screenWidth * (133 / persWidth),
                 child: DotsIndicator(
                   dotsCount: pages.length,
                   position: double.parse(index.toString()),
@@ -168,7 +181,9 @@ class _IntroScreenState extends State<IntroScreen> {
               //   width: screenWidth * (50 / persWidth),
               // ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * (16 / persWidth),vertical: screenHeight * (16 / persHeight)),
+                padding: EdgeInsets.symmetric(
+                    horizontal: screenWidth * (16 / persWidth),
+                    vertical: screenHeight * (16 / persHeight)),
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: TextButton(
@@ -177,7 +192,8 @@ class _IntroScreenState extends State<IntroScreen> {
                         if (pages.length - 1 > index) {
                           index++;
                         } else {
-                          Navigator.pushNamed(context, Home.routeName);
+                        //  Navigator.pushNamed(context, Home.routeName);
+                          Navigator.pushReplacementNamed(context, Home.routeName);
                         }
                       });
                     },

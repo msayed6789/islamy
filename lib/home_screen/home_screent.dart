@@ -7,6 +7,9 @@ import 'package:islamy/home_screen/tabs/sebha_tap/sebha_tab.dart';
 import 'package:islamy/home_screen/tabs/time_tap/time_tab.dart';
 import 'package:islamy/services/app_assets.dart';
 import 'package:islamy/services/color.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+bool firstTimeFlag = true;
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -22,11 +25,16 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     index = 0;
+    firstTimeFlag = false;
+    SharedPreferences.getInstance().then((pref) {
+      pref.setBool('firstTimeFlag', firstTimeFlag);
+    });
     super.initState();
   }
 
-  List<Widget> tabs = [HomeTab(), BookTab(), SebhaTab(), TimeTab(), RadioTab()];
 
+
+  List<Widget> tabs = [HomeTab(), BookTab(), SebhaTab(), TimeTab(), RadioTab()];
   @override
   Widget build(BuildContext context) {
     return SafeArea(

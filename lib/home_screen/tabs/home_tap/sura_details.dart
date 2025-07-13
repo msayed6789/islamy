@@ -6,7 +6,7 @@ import 'package:islamy/services/color.dart';
 import 'package:islamy/services/content_preview.dart';
 
 class SuraDetails extends StatefulWidget {
-  const SuraDetails({super.key});
+  const SuraDetails({super.key, });
   static const routeName = "SuraDetails";
 
   @override
@@ -17,7 +17,6 @@ class _SuraDetailsState extends State<SuraDetails> {
   List<String> suraDet = [];
   late SuraModel suraModelDat;
   bool loadContent = true;
-
   bool success = false, loading = false, error = false;
 
   @override
@@ -47,14 +46,14 @@ class _SuraDetailsState extends State<SuraDetails> {
             loading: loading,
             error: error,
             loadContent: loadSuraContent,
-          )
-          ),
+          )),
     );
   }
 
   Future<void> loadSuraContent() async {
+  
     loading = true;
-      await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(seconds: 1));
     try {
       String fileContent = await rootBundle
           .loadString("assets/files/Suras/${suraModelDat.suraCount}.txt");
