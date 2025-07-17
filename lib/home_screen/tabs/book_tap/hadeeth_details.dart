@@ -31,10 +31,10 @@ class HadeethDetails extends StatelessWidget {
           child: ContentPreview(
             contentDetil: [],
             success: successBook,
-            title: hadeethTitle[index-1],
+            title: hadhadeeth[index-1].hadeethTitle,
             loading: loadingBook,
             error: errorBook,
-            content:hadeethDet[index-1],
+            content:hadhadeeth[index-1].hadeethContent,
             loadContent: loadHadeethContentBook,
             isSura: false,
           )),

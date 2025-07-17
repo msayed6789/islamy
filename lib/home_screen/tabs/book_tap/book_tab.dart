@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamy/home_screen/models/hadeetg_model.dart';
 import 'package:islamy/home_screen/tabs/book_tap/hadeeth_details.dart';
 import 'package:islamy/home_screen/tabs/book_tap/widgets/hadeeth_card.dart';
 import 'package:islamy/services/app_assets.dart';
@@ -8,8 +9,10 @@ import 'package:islamy/services/background_gradient.dart';
 bool loadContentBook = true;
 bool successBook = false, loadingBook = false, errorBook = false;
 
-List<String> hadeethDet = [];
-List<String> hadeethTitle = [];
+// List<String> hadeethDet = [];
+// List<String> hadeethTitle = [];
+
+List<HadeetgModel> hadhadeeth = [];
 
 class BookTab extends StatefulWidget {
   const BookTab({super.key});
@@ -21,15 +24,16 @@ class BookTab extends StatefulWidget {
 class _BookTabState extends State<BookTab> {
   @override
   void initState() {
-    if (hadeethDet.isEmpty) {
+    // if (hadeethDet.isEmpty)
+    if (hadhadeeth.isEmpty)
+    
+     {
       loadAndRefresh();
     }
     super.initState();
   }
 
   @override
-
-
   Widget build(BuildContext context) {
     return BackgroundGradient(
         imag: AppAssets.hadeethTabBg,
@@ -39,22 +43,24 @@ class _BookTabState extends State<BookTab> {
             controller: PageController(viewportFraction: 0.7, initialPage: 0),
             padEnds: true,
             scrollDirection: Axis.horizontal,
-            itemCount: hadeethDet.length,
+            // itemCount: hadeethDet.length,
+            itemCount: hadhadeeth.length,
             itemBuilder: (context, index) => GestureDetector(
                   onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(HadeethDetails.routeName, arguments: index+1);
+                    Navigator.of(context).pushNamed(HadeethDetails.routeName,
+                        arguments: index + 1);
                     setState(() {});
                   },
                   child: HadeethCard(
-                      hadeeth: hadeethDet[index],
-                      hadeethTitle: hadeethTitle[index]),
+                      hadeeth: hadhadeeth[index].hadeethContent,
+                      hadeethTitle: hadhadeeth[index].hadeethTitle),
                 )));
   }
-    void loadAndRefresh() async{
-    await  loadHadeethContentBook();
 
-     setState(() {});
+  void loadAndRefresh() async {
+    await loadHadeethContentBook();
+
+    setState(() {});
   }
 }
 
@@ -73,8 +79,10 @@ Future<void> loadHadeethContentBook() async {
 
       fileContent = fileContent.replaceRange(0, lines[0].length, "");
 
-      hadeethDet.add(fileContent);
-      hadeethTitle.add(lines[0]);
+      // hadeethDet.add(fileContent);
+      // hadeethTitle.add(lines[0]);
+      hadhadeeth.add(HadeetgModel(hadeethContent: fileContent, hadeethTitle: lines[0],));
+
       successBook = true;
       loadingBook = false;
     } catch (e) {
