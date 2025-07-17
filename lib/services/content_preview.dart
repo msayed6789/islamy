@@ -30,12 +30,15 @@ class ContentPreview extends StatelessWidget {
           Image.asset(AppAssets.suraDetailsLeft,
               width: MediaQuery.of(context).size.width * 0.22,
               height: MediaQuery.of(context).size.height * 0.1),
-          Text(
-            title,
-            style: TextStyle(
-                fontSize: 24,
-                color: Color(ColorsApp.gold),
-                fontWeight: FontWeight.w700),
+          Expanded(
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 24,
+                  color: Color(ColorsApp.gold),
+                  fontWeight: FontWeight.w700),
+            ),
           ),
           Image.asset(AppAssets.suraDetailsRight,
               width: MediaQuery.of(context).size.width * 0.22,
