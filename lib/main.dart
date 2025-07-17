@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/home_screen/home_screent.dart';
+import 'package:islamy/home_screen/tabs/book_tap/hadeeth_details.dart';
 import 'package:islamy/home_screen/tabs/home_tap/home_tab.dart';
 import 'package:islamy/home_screen/tabs/home_tap/sura_details.dart';
 import 'package:islamy/pages/intro_screen.dart';
@@ -26,12 +27,12 @@ class MyApp extends StatelessWidget {
         SuraDetails.routeName:(context)=> SuraDetails(),
         Home.routeName: (_) => const Home(),
         HomeTab.routeName:(_)=> HomeTab(),
+        HadeethDetails.routeName:(_)=> HadeethDetails(),
+        
       },
       debugShowCheckedModeBanner: false,
    //initialRoute: Home.routeName,
    //initialRoute: "/",
-    
-    
     );
   }
 }

@@ -23,7 +23,11 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   initState() {
+    if(mostRecent.isEmpty)
+    {
     loadData();
+
+    }
     super.initState();
   }
 
@@ -124,9 +128,10 @@ class _HomeTabState extends State<HomeTab> {
 
       SharedPreferences.getInstance().then((pref) {
         pref.setStringList("mostRecentCash", mostRecentCashIndex);
-    setState(() {});
+    //setState(() {});
       });
     }
-
+    setState(() {});
   }
+  
 }

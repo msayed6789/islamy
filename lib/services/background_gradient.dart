@@ -3,23 +3,26 @@ import 'package:islamy/services/color.dart';
 
 // ignore: must_be_immutable
 class BackgroundGradient extends StatelessWidget {
-  BackgroundGradient({super.key, required this.child, required this.imag});
+  BackgroundGradient(
+      {super.key, required this.child, required this.imag, this.fit,this.alignment});
 
   Widget child;
   String imag;
-
+  BoxFit? fit;
+  AlignmentGeometry? alignment;
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: double.infinity,
+      width: double.infinity,
+      height: double.infinity,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(
-        imag,
-      ),
-      
-      fit: BoxFit.cover,
-      )  
-      ),
+          image: DecorationImage(
+        alignment: alignment?? Alignment.center,
+        image: AssetImage(
+          imag,
+        ),
+        fit: fit ?? BoxFit.cover,
+      )),
       child: Container(
         width: double.infinity,
         height: double.infinity,

@@ -13,5 +13,8 @@ class AppAssets {
   static final String suraDetailsRight = "assets/images/sura_details_right.png";
   static final String suraDetailsLeft = "assets/images/sura_details_left.png";
   static final String contentReview = "assets/images/content_review.png";
+  static final String hadeethCardBg = "assets/images/hadeeth_card_background.png";
+  static final String hadeethCardFotter = "assets/images/hadeeth_card_fotter.png";
+  static final String hadeethTabBg = "assets/images/hadeeth_tab_bg.jpg";
 
 }

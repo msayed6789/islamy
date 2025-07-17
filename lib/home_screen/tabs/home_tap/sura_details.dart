@@ -45,7 +45,7 @@ class _SuraDetailsState extends State<SuraDetails> {
             success: success,
             loading: loading,
             error: error,
-            loadContent: loadSuraContent,
+            loadContent: loadSuraContent, isSura: true,
           )),
     );
   }
