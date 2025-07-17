@@ -76,8 +76,7 @@ class HadeethCard extends StatelessWidget {
                       horizontal:
                           (MediaQuery.of(context).size.width * 0.063 / 2)),
                   child: Text(
-                    '''  $hadeeth 
-                              ''',
+                      hadeeth,
                     textDirection: TextDirection.rtl,
                     textAlign: TextAlign.center,
                     style: TextStyle(
