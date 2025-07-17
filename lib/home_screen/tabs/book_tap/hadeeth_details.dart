@@ -18,7 +18,7 @@ class HadeethDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Hadeeth$index",
+          "Hadeeth $index",
           style: TextStyle(
             color: Color(ColorsApp.gold),
           ),
