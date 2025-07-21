@@ -8,6 +8,7 @@ import 'package:islamy/services/background_gradient.dart';
 
 bool loadContentBook = true;
 bool successBook = false, loadingBook = false, errorBook = false;
+int currantIndex=0;
 
 // List<String> hadeethDet = [];
 // List<String> hadeethTitle = [];
@@ -25,9 +26,7 @@ class _BookTabState extends State<BookTab> {
   @override
   void initState() {
     // if (hadeethDet.isEmpty)
-    if (hadhadeeth.isEmpty)
-    
-     {
+    if (hadhadeeth.isEmpty) {
       loadAndRefresh();
     }
     super.initState();
@@ -40,6 +39,11 @@ class _BookTabState extends State<BookTab> {
         fit: BoxFit.fitWidth,
         alignment: Alignment.topCenter,
         child: PageView.builder(
+            onPageChanged: (value) {
+              setState(() {
+                currantIndex = value;
+              });
+            },
             controller: PageController(viewportFraction: 0.7, initialPage: 0),
             padEnds: true,
             scrollDirection: Axis.horizontal,
@@ -51,9 +55,12 @@ class _BookTabState extends State<BookTab> {
                         arguments: index + 1);
                     setState(() {});
                   },
-                  child: HadeethCard(
-                      hadeeth: hadhadeeth[index].hadeethContent,
-                      hadeethTitle: hadhadeeth[index].hadeethTitle),
+                  child: Padding(
+                    padding:  EdgeInsets.symmetric(vertical: index==currantIndex?0:20),
+                    child: HadeethCard(
+                        hadeeth: hadhadeeth[index].hadeethContent,
+                        hadeethTitle: hadhadeeth[index].hadeethTitle),
+                  ),
                 )));
   }
 
@@ -81,7 +88,10 @@ Future<void> loadHadeethContentBook() async {
 
       // hadeethDet.add(fileContent);
       // hadeethTitle.add(lines[0]);
-      hadhadeeth.add(HadeetgModel(hadeethContent: fileContent, hadeethTitle: lines[0],));
+      hadhadeeth.add(HadeetgModel(
+        hadeethContent: fileContent,
+        hadeethTitle: lines[0],
+      ));
 
       successBook = true;
       loadingBook = false;
